@@ -47,6 +47,11 @@ $container['user'] = function($c) {
     return new \App\Models\User();
 };
 
+// chronik model -> wo beiträge erstellt werden
+$container['chronik'] = function($c){
+    return new \App\Models\Chronik();
+};
+
 // http basic middleware
 $container['HttpBasicMiddleware'] = function($c) {
     return new \App\Middlewares\HttpBasicMiddleware($c->get('user'), $c->get('logger'));
@@ -59,8 +64,9 @@ $container['WebFormMiddleware'] = function($c) {
 
 $container["App\\Controllers\\ChronikController"] = function($c) {
     $view = $c->get('view');
+    $chronik = $c->get('chronik');
 
-    return new \App\Controllers\ChronikController($view);
+    return new \App\Controllers\ChronikController($view, $chronik);
 };
 
 $container["App\\Controllers\\DashboardController"] = function($c) {

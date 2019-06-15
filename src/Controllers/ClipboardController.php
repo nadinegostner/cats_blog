@@ -57,21 +57,28 @@ class ClipboardController
     {
         $currentUser = $_SESSION['username'];
         $clipboard = $this->clipboard->get($args['token']);
-        if ($clipboard) {
+        if ($clipboard)
+        {
             $users = $clipboard->ownClipboarduserList;
             $authorized = false;
 
-            if(count($users)!=0){
-                foreach ($users as $user) {
-                    if($user->username == $currentUser || $user->username == "") {
+            if(count($users)!=0)
+            {
+                foreach ($users as $user)
+                {
+                    if($user->username == $currentUser || $user->username == "")
+                    {
                         $this->clipboard->deleteClipboarduser($currentUser);
-                        if(count($users) == 1){
+                        if(count($users) == 1)
+                        {
                             $this->clipboard->delete($args['token']);
                         }
                         $authorized = true;
                     }
                 }
-            } else {
+            }
+            else
+            {
                 $authorized = true;
             }
             

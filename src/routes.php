@@ -2,7 +2,7 @@
 
 $app->get("/", "App\\Controllers\\ChronikController:chronik");
 
-$app->get("/chronik", "App\\Controllers\\ChronikController:chronik");
+$app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
 
@@ -11,6 +11,9 @@ $app->get("/newsletter", "App\\Controllers\\NewsletterController:newsletter");
 $app->get("/profil", "App\\Controllers\\ProfilController:profil");
 
 $app->get("/logout", "App\\Controllers\\LoginController:logout");
+
+$app->post("/chronik", "App\\Controllers\\ChronikController:postErstellen");
+
 
 //alte routen
 
