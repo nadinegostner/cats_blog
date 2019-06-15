@@ -56,3 +56,27 @@ $container['HttpBasicMiddleware'] = function($c) {
 $container['WebFormMiddleware'] = function($c) {
     return new \App\Middlewares\WebFormMiddleware($c->get('user'), $c->get('logger'), $c->get('session'));
 };
+
+$container["App\\Controllers\\ChronikController"] = function($c) {
+    $view = $c->get('view');
+
+    return new \App\Controllers\ChronikController($view);
+};
+
+$container["App\\Controllers\\DashboardController"] = function($c) {
+    $view = $c->get('view');
+
+    return new \App\Controllers\DashboardController($view);
+};
+
+$container["App\\Controllers\\NewsletterController"] = function($c) {
+    $view = $c->get('view');
+
+    return new \App\Controllers\NewsletterController($view);
+};
+
+$container["App\\Controllers\\ProfilController"] = function($c) {
+    $view = $c->get('view');
+
+    return new \App\Controllers\ProfilController($view);
+};

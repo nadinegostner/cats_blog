@@ -48,7 +48,7 @@ class ClipboardController
         $scheme = $request->getUri()->getScheme();
         $host = $request->getUri()->getHost() . ":" . $request->getUri()->getPort();
 
-        return $this->view->render($response, 'success.twig', [
+        return $this->view->render($response, 'newsletter.twig', [
             'uri' => $scheme . "://" . $host . "/clipboard/" . $token
         ]);
     }

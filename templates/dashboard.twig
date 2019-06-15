@@ -1,6 +1,27 @@
 {% include 'header.twig' %}
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/logout">
+                <div class="btn btn-secondary float-right m-2">Logout</div>
+            </a>
+            <a href="/profil">
+                <div class="btn btn-secondary float-right m-2">Mein Konto</div>
+            </a>
+            <a href="/newsletter">
+                <div class="btn btn-secondary float-right m-2">Cataletter</div>
+            </a>
+            <a href="/dashboard">
+                <div class="btn btn-secondary float-right m-2">Dashboard</div>
+            </a>
+            <a href="/chronik">
+                <div class="btn btn-secondary float-right m-2">Chronik</div>
+            </a>
+        </div>
+    </div>
+
     {% if authorized %}
         {% if type == "image" %}
             <div class="card text-white bg-info mb-3">
