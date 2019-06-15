@@ -24,4 +24,16 @@ class Chronik
         R::store($post);
     }
 
+    public function anzeigenalle()
+    {
+        $cats = R::getAll('SELECT post.file as file, post.text as text FROM book');
+
+
+    }
+
+    public function anzeigeneigene()
+    {
+
+    }
+
 }
