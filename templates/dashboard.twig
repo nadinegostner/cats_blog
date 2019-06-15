@@ -1,0 +1,29 @@
+{% include 'header.twig' %}
+
+<div class="container">
+    {% if authorized %}
+        {% if type == "image" %}
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">Your Clip with token: {{ token }}</div>
+                <img src="/{{ content }}" class="card-img-top" alt="Clipboard image">
+            </div>
+        {% else %}
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">Your Clip with token: {{ token }}</div>
+                <div class="card-body">
+                    <p class="card-text">{{ content }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+    <div class="card text-white bg-danger mb-3">
+            <div class="card-header">No Permission</div>
+            <div class="card-body">
+                <p class="card-text">You are not allowed to view this clip!</p>
+            </div>
+        </div>
+    {% endif %}
+    
+</div>
+
+{% include 'footer.twig' %}

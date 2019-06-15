@@ -1,0 +1,79 @@
+{% include 'header.twig' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/logout">
+                <div class="btn btn-secondary float-centre - m-2">Logout</div>
+                <div class="btn btn-secondary float-centre - m-2">Mein Konto</div>
+            </a>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Media sharing machine</h1>|
+        <p class="lead">Share your text and images with friends!</p>
+        <hr class="my-4">
+        <p>The clipboard is removed after one share!</p>
+    </div>
+    <div class="row  mb-4">
+        <h3 class="col-md-12">Users</h3>
+        <div class="col-md-3">
+          <input type="text" name="users[]" form="messageForm" id="userInput">
+        </div>
+        <div class="col-md-3">
+            <div class="btn btn-success" id="addBtn">
+                Add
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Text to Share</h3>
+
+            <form action="/clipboard" method="post" id="messageForm">
+                <div class="form-group">
+                    <textarea id="text" name="content" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Share</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Image to Share</h3>
+
+            <form id="image-form" action="/clipboard" method="post" enctype="multipart/form-data" id="pictureForm">
+                <input id="image" type="file" name="image" style="display: none">
+                <button id="image-share" class="btn btn-primary">Select and Share</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let image = document.querySelector("#image");
+        let imageShare = document.querySelector("#image-share");
+        let imageForm = document.querySelector("#image-form");
+
+        imageShare.addEventListener('click', function(e) {
+            e.preventDefault();
+            image.click();
+        });
+        image.addEventListener('change', function() {
+            imageForm.submit();
+        })
+    </script>
+</div>
+<script>
+    var input = document.getElementById("userInput");
+    var btn = document.getElementById("addBtn");
+
+    btn.addEventListener('click', function() {
+            newInput = document.createElement('input');
+            newInput.className = "mb-2"
+            newInput.type = "text";
+            newInput.name = "users[]";
+            newInput.setAttribute("form","messageForm");
+            input.parentNode.insertBefore(newInput, input);
+        
+    });
+
+</script>
+
+{% include 'footer.twig' %}
