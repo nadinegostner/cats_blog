@@ -14,6 +14,8 @@ use App\Helper\Session;
 class ChronikController
 {
     protected $view;
+    protected $chronik;
+
 
     public function __construct(Twig $view, Chronik $chronik)
     {
@@ -24,6 +26,7 @@ class ChronikController
     public function chronik($request, $response, $args)
     {
         return $this->view->render($response, 'chronik.twig');
+
     }
 
     public function postErstellen(ServerRequestInterface $request, ResponseInterface $response)
@@ -55,7 +58,17 @@ class ChronikController
 
     public function postAnzeigen(ServerRequestInterface $request, ResponseInterface $response)
     {
+        $posts = array($this->chronik->anzeigenalle());
 
+        foreach($posts as $post)
+        {
+            return $this->view->render($response, 'chronik.twig', [
+               'image' => $post->file,
+                'text' => $post->text,
+                'posts' => $posts,
+                'post' => $post
+            ]);
+        }
     }
 
 

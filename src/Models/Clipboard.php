@@ -18,8 +18,10 @@ class Clipboard
         $clipboard->content = $content;
         $clipboard->type = $type;
 
-        if($selectedUsers) {
-            foreach ($selectedUsers as $key => $username) {
+        if($selectedUsers)
+        {
+            foreach ($selectedUsers as $key => $username)
+            {
                 $user = R::dispense('clipboarduser');
                 $user->username = $username;
                 $clipboard->ownClipboarduserList[] = $user;

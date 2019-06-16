@@ -14,7 +14,6 @@ $app->get("/logout", "App\\Controllers\\LoginController:logout");
 
 $app->post("/chronik", "App\\Controllers\\ChronikController:postErstellen");
 
-
 //alte routen
 
 $app->post("/clipboard", "App\\Controllers\\ClipboardController:create");

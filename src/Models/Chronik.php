@@ -26,8 +26,13 @@ class Chronik
 
     public function anzeigenalle()
     {
-        $cats = R::getAll('SELECT post.file as file, post.text as text FROM book');
+        $cats = R::getAll('post');
 
+        foreach ($cats as $post)
+        {
+            return $post->file && $post->text;
+
+        }
 
     }
 

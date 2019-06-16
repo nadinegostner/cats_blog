@@ -37,7 +37,12 @@
         </div>
     </div>
 
-
+    {% for post in posts %}
+        <div>
+            <img src="/{{ post.file }}" class="card-img-top" alt="Image">
+            <b>{{ post.text }}</b>
+        </div>
+    {% endfor %}
 
     POSTS VON ALLEN HIER
 
