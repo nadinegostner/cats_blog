@@ -37,10 +37,16 @@
         </div>
     </div>
 
+    <div>
+        {{ cats }}
+        {{ file }}
+        {{ text }}
+    </div>
+
     {% for post in posts %}
         <div>
-            <img src="/{{ post.file }}" class="card-img-top" alt="Image">
-            <b>{{ post.text }}</b>
+            <img src="/{{ file }}" class="card-img-top" alt="Image">
+            <b>{{ text }}</b>
         </div>
     {% endfor %}
 
@@ -61,6 +67,7 @@
     </script>
 </div>
 <script>
+
     var input = document.getElementById("userInput");
     var btn = document.getElementById("addBtn");
 

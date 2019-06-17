@@ -2,6 +2,8 @@
 
 $app->get("/", "App\\Controllers\\ChronikController:chronik");
 
+//$app->get('/', \App\Controllers\ChronikController::class . 'chronik' );
+
 $app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
