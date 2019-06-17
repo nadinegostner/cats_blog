@@ -32,9 +32,6 @@ class Chronik
 
     }
 
-    public function anzeigeneigene()
-    {
 
-    }
 
 }

@@ -20,7 +20,7 @@ class ClipboardController
 
     public function index($request, $response, $args)
     {
-        return $this->view->render($response, 'chronik.twig');
+        return $this->view->render($response, 'chronik.html.twig');
     }
 
     public function create(ServerRequestInterface $request, ResponseInterface $response)

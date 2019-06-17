@@ -26,41 +26,13 @@ class ChronikController
 
     public function chronik($request, $response, $args)
     {
-        //return $this->view->render($response, 'chronik.twig');
 
         $cats = $this->chronik->anzeigenalle();
 
-        foreach($cats as $number)
-        {
-            foreach($number as $post)
-            {
-                return $this->view->render($response, 'chronik.twig', [
-                    'image' => $post->file,
-                    'text' => $post->text
-                ]);
-            }
-        }
-
-
-        /*
-        return $this->view->render($response, 'chronik.twig', [
-        'cats' => $cats
-    ]);
-        */
-
-    /*
-        foreach($cats as $cat)
-        {
-                return $this->view->render($response, 'chronik.twig', [
-                    'image' => $cat->file,
-                    'text' => $cat->text,
-                    'posts' => $cats,
-                    'post' => $cat
-                ]);
-
-        }
-    */
-
+        return $this->view->render($response, 'chronik.html.twig',
+            [
+            'cats' => $cats
+            ]);
     }
 
     public function postErstellen(ServerRequestInterface $request, ResponseInterface $response)
@@ -82,7 +54,12 @@ class ChronikController
             }
         }
 
-        return $this->view->render($response, 'chronik.twig');
+        $cats = $this->chronik->anzeigenalle();
+
+        return $this->view->render($response, 'chronik.html.twig',
+        [
+            'cats' => $cats
+        ]);
     }
 
     public function postLoeschen(ServerRequestInterface $request, ResponseInterface $response)
@@ -96,7 +73,7 @@ class ChronikController
 
         foreach($post->alleanzeigen() as $cats )
         {
-            return $this->view->render($response, 'chronik.twig', [
+            return $this->view->render($response, 'chronik.html.twig', [
                'image' => $cats->file,
                 'text' => $cats->text,
                 'posts' => $cats,

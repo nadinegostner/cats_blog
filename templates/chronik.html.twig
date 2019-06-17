@@ -37,16 +37,10 @@
         </div>
     </div>
 
-    <div>
-        {{ cats }}
-        {{ file }}
-        {{ text }}
-    </div>
-
-    {% for post in posts %}
+    {% for cat in cats %}
         <div>
-            <img src="/{{ file }}" class="card-img-top" alt="Image">
-            <b>{{ text }}</b>
+            <img src="/{{ cat.file }}" class="card-img-top" alt="Image">
+            <b>{{ cat.text }}</b>
         </div>
     {% endfor %}
 

@@ -35,6 +35,16 @@
     </div>
 
     POSTS VON USER HIER ANZEIGEN
+
+    {% for cat in cats %}
+        {% if {{ cats.user }} == {{ currentuser }} %}
+        <div>
+            <img src="/{{ cat.file }}" class="card-img-top" alt="Image">
+            <b>{{ cat.text }}</b>
+        </div>
+        {% endif %}
+    {% endfor %}
+
         {% if type == "image" %}
             <div class="card text-white bg-info mb-3">
                 <div class="card-header">Your Clip with token: {{ token }}</div>
