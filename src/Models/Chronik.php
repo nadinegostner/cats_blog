@@ -29,7 +29,13 @@ class Chronik
         $cats = R::getAll("SELECT file, text FROM posts");
         return $cats;
 
+    }
 
+    public function anzeigeneigene()
+    {
+        $currentUser = $_SESSION['username'];
+        $catsown = R::getAll("SELECT file, text FROM posts WHERE user ='$currentUser';");
+        return $catsown;
     }
 
 

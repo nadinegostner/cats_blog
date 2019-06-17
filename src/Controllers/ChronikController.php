@@ -24,7 +24,7 @@ class ChronikController
         $this->chronik = $chronik;
     }
 
-    public function chronik($request, $response, $args)
+    public function chronik(ServerRequestInterface $request, ResponseInterface $response)
     {
 
         $cats = $this->chronik->anzeigenalle();

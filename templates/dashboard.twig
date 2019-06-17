@@ -37,27 +37,44 @@
     POSTS VON USER HIER ANZEIGEN
 
     {% for cat in cats %}
-        {% if {{ cats.user }} == {{ currentuser }} %}
+
         <div>
             <img src="/{{ cat.file }}" class="card-img-top" alt="Image">
             <b>{{ cat.text }}</b>
         </div>
-        {% endif %}
+
     {% endfor %}
 
-        {% if type == "image" %}
-            <div class="card text-white bg-info mb-3">
-                <div class="card-header">Your Clip with token: {{ token }}</div>
-                <img src="/{{ content }}" class="card-img-top" alt="Clipboard image">
-            </div>
-        {% else %}
-            <div class="card text-white bg-info mb-3">
-                <div class="card-header">Your Clip with token: {{ token }}</div>
-                <div class="card-body">
-                    <p class="card-text">{{ content }}</p>
-                </div>
-            </div>
-        {% endif %}
+    <script>
+        let image = document.querySelector("#image");
+        let imageShare = document.querySelector("#image-share");
+        let imageForm = document.querySelector("#image-form");
+
+        imageShare.addEventListener('click', function(e) {
+            e.preventDefault();
+            image.click();
+        });
+        image.addEventListener('change', function() {
+            imageForm.submit();
+        })
+    </script>
+</div>
+<script>
+
+    var input = document.getElementById("userInput");
+    var btn = document.getElementById("addBtn");
+
+    btn.addEventListener('click', function() {
+        newInput = document.createElement('input');
+        newInput.className = "mb-2"
+        newInput.type = "text";
+        newInput.name = "users[]";
+        newInput.setAttribute("form","messageForm");
+        input.parentNode.insertBefore(newInput, input);
+
+    });
+
+</script>
     
 </div>
 

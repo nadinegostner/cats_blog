@@ -71,8 +71,9 @@ $container["App\\Controllers\\ChronikController"] = function($c) {
 
 $container["App\\Controllers\\DashboardController"] = function($c) {
     $view = $c->get('view');
+    $chronik = $c->get('chronik');
 
-    return new \App\Controllers\DashboardController($view);
+    return new \App\Controllers\DashboardController($view, $chronik);
 };
 
 $container["App\\Controllers\\NewsletterController"] = function($c) {
