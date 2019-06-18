@@ -2,5 +2,5 @@
 /logs/*
 !/logs/README.md
 .idea/
-clipboard.db
-/public/images/*
+
+
