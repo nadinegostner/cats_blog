@@ -39,4 +39,13 @@ class User
 
         return false;
     }
+
+    public function userAnzeigen()
+    {
+        $currentuser = $_SESSION['username'];
+
+        $userprofile = R::findOne("user", "username = ?", [$currentuser]);
+
+        return $userprofile;
+    }
 }

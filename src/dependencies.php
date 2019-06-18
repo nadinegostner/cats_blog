@@ -84,6 +84,7 @@ $container["App\\Controllers\\NewsletterController"] = function($c) {
 
 $container["App\\Controllers\\ProfilController"] = function($c) {
     $view = $c->get('view');
+    $user = $c->get('user');
 
-    return new \App\Controllers\ProfilController($view);
+    return new \App\Controllers\ProfilController($view, $user);
 };
