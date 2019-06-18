@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Username: {{ username }}</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="Username aendern" class="form-control input-md">
+                    <input id="username" name="username" type="text" placeholder="Username aendern" class="form-control input-md">
 
                 </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Vorname: {{ firstname }}</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="Vorname aendern" class="form-control input-md" required="">
+                    <input id="firstName" name="firstName" type="text" placeholder="Vorname aendern" class="form-control input-md" required="">
 
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Nachname: {{ lastname }}</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="Nachname aendern" class="form-control input-md">
+                    <input id="lastName" name="lastName" type="text" placeholder="Nachname aendern" class="form-control input-md">
 
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">E-Mail: {{ email }}</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="E-Mail aendern" class="form-control input-md">
+                    <input id="email" name="email" type="text" placeholder="E-Mail aendern" class="form-control input-md">
 
                 </div>
             </div>
@@ -73,7 +73,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Neues Password</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="Passwort" class="form-control input-md">
+                    <input id="password" name="textinput" type="password" placeholder="Passwort" class="form-control input-md">
 
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">neues Passwort nochmal</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="textinput" type="text" placeholder="Passwort nochmal" class="form-control input-md">
+                    <input id="passwordRepeat" name="textinput" type="password" placeholder="Passwort nochmal" class="form-control input-md">
 
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="btnsave">Save Changes</label>
                 <div class="col-md-8">
-                   <a href="/update"> <button id="btnsave" name="btnsave" class="btn btn-success">Speichern</button></a>
+                    <button id="btnsave" name="btnsave" class="btn btn-success" type="submit">Speichern</button>
                     <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button></a>
                 </div>
             </div>
