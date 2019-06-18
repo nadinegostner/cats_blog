@@ -48,4 +48,9 @@ class User
 
         return $userprofile;
     }
+
+    public function updateUser()
+    {
+
+    }
 }

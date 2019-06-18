@@ -7,7 +7,7 @@
             <a href="/logout">
                 <div class="btn btn-secondary float-right m-2">Logout</div>
             </a>
-            <a href="/profil">
+            <a href="/profile">
                 <div class="btn btn-secondary float-right m-2">Mein Konto</div>
             </a>
             <a href="/newsletter">
@@ -23,7 +23,7 @@
     </div>
 
     <form class="form-horizontal">
-        <fieldset>
+
 
             <!-- Form Name -->
             <legend>{{ username }}`s Profile</legend>
@@ -92,12 +92,12 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="btnsave">Save Changes</label>
                 <div class="col-md-8">
-                    <button id="btnsave" name="btnsave" class="btn btn-success">Yes</button>
-                    <button id="btncancel" name="btncancel" class="btn btn-danger">No</button>
+                   <a href="/update"> <button id="btnsave" name="btnsave" class="btn btn-success">Speichern</button></a>
+                    <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button></a>
                 </div>
             </div>
 
-        </fieldset>
+
     </form>
 
 
