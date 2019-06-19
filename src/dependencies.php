@@ -82,9 +82,9 @@ $container["App\\Controllers\\NewsletterController"] = function($c) {
     return new \App\Controllers\NewsletterController($view);
 };
 
-$container["App\\Controllers\\ProfilController"] = function($c) {
+$container["App\\Controllers\\ProfileController"] = function($c) {
     $view = $c->get('view');
     $user = $c->get('user');
 
-    return new \App\Controllers\ProfilController($view, $user);
+    return new \App\Controllers\ProfileController($view, $user);
 };
