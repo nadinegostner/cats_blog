@@ -49,8 +49,20 @@ class User
         return $userprofile;
     }
 
-    public function updateUser()
+    public function updateUser($username, $firstname, $lastname, $email, $passwort)
     {
+        $currentuser = $_SESSION["username"];
 
+        $id = R::getCell("SELECT id FROM user WHERE username='$currentuser'");
+
+        $user = R::load('user', $id);
+
+        $user->username = $username;
+        $user->firstname = $firstname;
+        $user->lastname = $lastname;
+        $user->email = $email;
+        $user->password = password_hash($passwort, PASSWORD_DEFAULT);
+
+        R::store($user);
     }
 }
