@@ -21,9 +21,9 @@ class NewsletterController
     }
 
     public function subscribe($request, $response){
-       /*  $email = $request->getParam('email');
-        $firstname = $request->getParam('firstname');
-        $lastname = $request->getParam('lastname');
+        $email = $request->getParam('email');
+        //$firstname = $request->getParam('firstname');
+        //$lastname = $request->getParam('lastname');
         $list_id = '73484788f4';
         $api_key = '9e0c956798a39f6f9cff9760f3c24bb0-us3';
 
@@ -47,6 +47,15 @@ class NewsletterController
         $result = curl_exec($ch);
         $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        echo $status_code; */
+        echo $status_code;
+        echo $result;
+
+
+        /* curl --request POST \
+            --url 'https://usX.api.mailchimp.com/3.0/lists/205d96e6b4/webhooks' \
+            --user 'anystring:apikey' \
+            --header 'content-type: application/json' \
+            --data '{"url" : "http://requestb.in/u5nuzfu5", "events" : {"subscribe" : true, "unsubscribe" : true, "profile" : true, "cleaned" : true, "upemail" : true, "campaign" : true}, "sources" : {"user" : true, "admin" : true, "api" : true}}' \
+            --include */
     }
 }

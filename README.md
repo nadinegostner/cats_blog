@@ -25,3 +25,12 @@ Run this command in the application directory to run the test suite
 	php composer.phar test
 
 That's it! Now go build something cool.
+
+# MailChimp
+
+Tutorial: 	https://artisansweb.net/mailchimp-integration-website-using-mailchimp-api-php/
+API Key:	9e0c956798a39f6f9cff9760f3c24bb0-us3
+List ID:	
+
+! Extend php.ini file for curl extension !
+-> remove ; in line 905
