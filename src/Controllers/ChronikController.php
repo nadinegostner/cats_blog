@@ -69,7 +69,20 @@ class ChronikController
 
     public function postLoeschen(ServerRequestInterface $request, ResponseInterface $response)
     {
+        $id = $request->getParam('id');
+        $success = $this->chronik->loeschen($id);
 
+        if(!$success){
+            $message = "Dein CATpost konnte leider nicht gelöscht werden. Bitte probiere es erneut.";
+        }else{
+            $message = "Dein CATpost wurde erfolgreich gelöscht!";
+        }
+
+        return $this->view->render($response, 'dashboard.twig',
+        [
+            'success' => $success,
+            'message' => $message
+        ]);
     }
 
     public function postAnzeigen(ServerRequestInterface $request, ResponseInterface $response)

@@ -8,6 +8,9 @@ $app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
 
+$app->map(["PUT", "PATCH"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
+$app->post("/deletePost", "App\\Controllers\\ChronikController:postLoeschen");
+
 $app->get("/newsletter", "App\\Controllers\\NewsletterController:newsletter");
 
 $app->get("/profile", "App\\Controllers\\ProfileController:profil");
