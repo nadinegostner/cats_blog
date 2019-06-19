@@ -40,17 +40,21 @@ class ChronikController
         $files = $request->getUploadedFiles();
         $text =  $request->getParam('text');
         $currentUser = $_SESSION['username'];
+        $err_message = null;
 
         if ($files && isset($files['image'])) {
             $file = $files['image'];
 
-            if ($file->getError() === UPLOAD_ERR_OK)
+            if (($file->getError()) === UPLOAD_ERR_OK)
             {
                 $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);
                 $filename = "images/" . $this->chronik->generateToken($file->getClientFilename()) . "." . $extension;
                 $file->moveTo(__DIR__ . "/../../public/" . $filename);
 
                 $this->chronik->posten($filename, $text, $currentUser);
+            }else{
+                $err_message = "Leider kann Dein Bild nicht hochgeladen werden. 
+                Vermutlich ist es zu groß oder entspricht keinem gängigem Format. Bitte probier eine andere Datei!";
             }
         }
 
@@ -58,7 +62,8 @@ class ChronikController
 
         return $this->view->render($response, 'chronik.html.twig',
         [
-            'cats' => $cats
+            'cats' => $cats,
+            'error' => $err_message
         ]);
     }
 
