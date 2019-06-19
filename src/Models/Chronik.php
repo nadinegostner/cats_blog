@@ -26,7 +26,7 @@ class Chronik
 
     public function anzeigenalle()
     {
-        $cats = R::getAll("SELECT * FROM posts");
+        $cats = R::getAll("SELECT * FROM posts ORDER BY id DESC");
         return $cats;
 
     }
@@ -34,7 +34,7 @@ class Chronik
     public function anzeigeneigene()
     {
         $currentUser = $_SESSION['username'];
-        $catsown = R::getAll("SELECT * FROM posts WHERE user ='$currentUser';");
+        $catsown = R::getAll("SELECT * FROM posts WHERE user ='$currentUser' ORDER BY id DESC");
         return $catsown;
     }
 
