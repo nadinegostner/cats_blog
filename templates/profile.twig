@@ -32,36 +32,36 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Username: {{ username }}</label>
+                <label class="col-md-4 control-label" for="textinput">Username:</label>
                 <div class="col-md-4">
-                    <input id="username" name="username" type="text" placeholder="Username aendern" class="form-control input-md">
+                    <input id="username" name="username" type="text" value="{{ username }}" class="form-control input-md">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Vorname: {{ firstname }}</label>
+                <label class="col-md-4 control-label" for="textinput">Vorname:</label>
                 <div class="col-md-4">
-                    <input id="firstName" name="firstName" type="text" placeholder="Vorname aendern" class="form-control input-md" required="">
+                    <input id="firstName" name="firstName" type="text" value="{{ firstname }}" placeholder="Vorname aendern" class="form-control input-md" required="">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Nachname: {{ lastname }}</label>
+                <label class="col-md-4 control-label" for="textinput">Nachname:</label>
                 <div class="col-md-4">
-                    <input id="lastName" name="lastName" type="text" placeholder="Nachname aendern" class="form-control input-md">
+                    <input id="lastName" name="lastName" type="text" value="{{ lastname }}"placeholder="Nachname aendern" class="form-control input-md">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">E-Mail: {{ email }}</label>
+                <label class="col-md-4 control-label" for="textinput">E-Mail:</label>
                 <div class="col-md-4">
-                    <input id="email" name="email" type="text" placeholder="E-Mail aendern" class="form-control input-md">
+                    <input id="email" name="email" type="text" value="{{ email }}" placeholder="E-Mail aendern" class="form-control input-md">
 
                 </div>
             </div>

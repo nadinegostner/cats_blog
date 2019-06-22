@@ -54,7 +54,13 @@ class ProfileController
             {
                 if($this->user->exists($username) == false)
                 {
+                 /*    if($password == null){
+                        $this->user->updateUser($username, $password, $firstName, $lastName, $email);
+                    }else{
+                        $this->user->updateUser($username, $password, $firstName, $lastName, $email);
+                    } */
                     $this->user->updateUser($username, $password, $firstName, $lastName, $email);
+                    
 
                     return $response->withRedirect("/login");
                 }

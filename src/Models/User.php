@@ -86,7 +86,9 @@ class User
         $user = R::load('user', $currentuser);
 
         $user->username = $username;
-        $user->password = password_hash($password, PASSWORD_DEFAULT);
+        if($password != null) {
+            $user->password = password_hash($password, PASSWORD_DEFAULT);
+        }
         $user->first_name = $firstName;
         $user->last_name = $lastName;
         $user->email = $email;
