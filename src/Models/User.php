@@ -70,7 +70,7 @@ class User
         return $userprofile;
     }
 
-    public function updateUser($username,$password, $firstName, $lastName, $email )
+    public function updateUser($username, $firstName, $lastName, $email )
     {
         $currentuser = $_SESSION["id"];
         //$newpassword = password_hash($passwort, PASSWORD_DEFAULT);
@@ -86,9 +86,9 @@ class User
         $user = R::load('user', $currentuser);
 
         $user->username = $username;
-        if($password != null) {
+        /* if($password != null) {
             $user->password = password_hash($password, PASSWORD_DEFAULT);
-        }
+        } */
         $user->first_name = $firstName;
         $user->last_name = $lastName;
         $user->email = $email;
@@ -101,5 +101,11 @@ class User
 
 
 
+    }
+
+    public function updatePW($password, $userid){
+        $user = R::load('user', $userid);
+        $user->password = password_hash($password, PASSWORD_DEFAULT);
+        R::store($user);
     }
 }

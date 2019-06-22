@@ -24,6 +24,8 @@ $app->post("/subscribe", "App\\Controllers\\NewsletterController:subscribe");
 
 $app->map(["GET","POST"],"/update", "App\\Controllers\\ProfileController:update");
 
+$app->map(["GET", "POST"], "/update-p", "App\\Controllers\\ProfileController:updatePassword");
+
 //alte routen
 
 $app->post("/clipboard", "App\\Controllers\\ClipboardController:create");

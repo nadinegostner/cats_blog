@@ -66,33 +66,28 @@
                 </div>
             </div>
 
-            <br>
+            <!--br>
             <b>Passwort aendern</b>
             <br>
             <br>
 
-            <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Neues Password</label>
                 <div class="col-md-4">
-                    <input id="password" name="textinput" type="password" placeholder="Passwort" class="form-control input-md">
+                    <input id="password" name="password" type="password" placeholder="Passwort" class="form-control input-md">
 
                 </div>
             </div>
 
-            <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">neues Passwort nochmal</label>
                 <div class="col-md-4">
-                    <input id="passwordRepeat" name="textinput" type="password" placeholder="Passwort nochmal" class="form-control input-md">
+                    <input id="passwordRepeat" name="passwordRepeat" type="password" placeholder="Passwort nochmal" class="form-control input-md">
 
                 </div>
-            </div>
+            </div-->
 
-
-            <!-- Button (Double) -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="btnsave">Save Changes</label>
                 <div class="col-md-8">
                      <button id="btnsave" name="btnsave" class="btn btn-success" type="submit">Speichern</button>
                     <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button> </a>
@@ -105,6 +100,43 @@
         {% endif %}
 
 
+    </form>
+
+    <form action="/update-p" method="POST">
+            <b>Passwort aendern</b>
+            <br>
+            <br>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Altes Password</label>
+                <div class="col-md-4">
+                    <input id="password" name="oldPw" type="password" placeholder="Passwort" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Neues Password</label>
+                <div class="col-md-4">
+                    <input id="password" name="newPw" type="password" placeholder="Passwort" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Neues Passwort nochmal</label>
+                <div class="col-md-4">
+                    <input id="passwordRepeat" name="repeatPw" type="password" placeholder="Passwort nochmal" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-8">
+                     <button id="btnsave" name="btnsave" class="btn btn-success" type="submit">Speichern</button>
+                    <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button> </a>
+                </div>
+            </div>
     </form>
 
 

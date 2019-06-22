@@ -47,19 +47,19 @@ class ProfileController
             $firstName = $request->getParam('firstName');
             $lastName = $request->getParam('lastName');
             $email = $request->getParam('email');
-            $password = $request->getParam('password');
-            $passwordRepeat = $request->getParam('passwordRepeat');
+            //$password = $request->getParam('password');
+            //$passwordRepeat = $request->getParam('passwordRepeat');
 
-            if ($password == $passwordRepeat )
-            {
-                if($this->user->exists($username) == false)
+            //if ($password == $passwordRepeat )
+            //{
+                if($this->user->exists($username) == false || $username == $this->user->username)
                 {
                  /*    if($password == null){
                         $this->user->updateUser($username, $password, $firstName, $lastName, $email);
                     }else{
                         $this->user->updateUser($username, $password, $firstName, $lastName, $email);
                     } */
-                    $this->user->updateUser($username, $password, $firstName, $lastName, $email);
+                    $this->user->updateUser($username, $firstName, $lastName, $email);
                     
 
                     return $response->withRedirect("/login");
@@ -69,15 +69,32 @@ class ProfileController
                     return $this->view->render($response, 'profile.twig', array("updateError" => "Der angegebene Benutzername existiert bereits"));
                 }
 
-            }
+            /* }
             else
             {
                 return $this->view->render($response, 'profile.twig', array("updateError" => "Die angegebenen Passwörter stimmen nicht überein, versuchen Sie es erneut!"));
-            }
+            } */
 
+        //}
+
+
+    }
+
+    public function updatePassword(ServerRequestInterface $request, ResponseInterface $response){
+        $user = $this->user->userAnzeigen();
+        $userid = $user->id;
+        $oldPW = $request->getParam('oldPw');
+        $newPW = $request->getParam('newPw');
+        $repeat = $request->getParam('repeatPw');
+
+        if(password_verify($oldPW, $user->password) && $newPW == $repeat){
+            $this->user->updatePW($newPW, $userid);
+
+            return $response->withRedirect("/login");
+        }else{
+            return $this->view->render($response, 'profile.twig', [
+                "updateError" => "Mind. eines der Passwörter war falsch. Versuchen Sie es erneut!"]);
         }
-
-
-    //}
+    }
 
 }
