@@ -78,10 +78,13 @@ class ChronikController
             $message = "Dein CATpost wurde erfolgreich gelöscht!";
         }
 
+        $cats = $this->chronik->anzeigeneigene();
+
         return $this->view->render($response, 'dashboard.twig',
         [
             'success' => $success,
-            'message' => $message
+            'message' => $message,
+            'cats' => $cats
         ]);
     }
 
@@ -98,6 +101,27 @@ class ChronikController
                 'post' => $cats
             ]);
         }
+    }
+
+    public function postBearbeiten(ServerRequestInterface $request, ResponseInterface $response){
+        $id = $request->getParam('id');
+        $text = $request->getParam('text');
+        $success = $this->chronik->bearbeiten($id, $text);
+
+        if (!$success) {
+            $message = "Dein CATpost konnte leider nicht gespeichert werden. Bitte probiere es erneut.";
+        } else {
+            $message = "Dein CATpost wurde erfolgreich geändert!";
+        }
+
+        return $this->view->render(
+            $response,
+            'dashboard.twig',
+            [
+                'success' => $success,
+                'message' => $message
+            ]
+        );
     }
 
 
