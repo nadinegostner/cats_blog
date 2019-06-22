@@ -8,6 +8,7 @@ use Slim\Views\Twig;
 use Slim\Http\Response;
 use App\Models\User;
 use App\Helper\Session;
+use RedBeanPHP\R;
 
 class LoginController
 {
@@ -24,18 +25,32 @@ class LoginController
 
     public function login(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
-        if($request->isPost() && $request->getParam('username') && $request->getParam('password')){
+        if( $request->getParam('username') && $request->getParam('password')){
 
             $username = $request->getParam('username');
             $password = $request->getParam('password');
 
-            if ($this->user->login($username, $password)) {
+
+            //$user = R::findOne("user", "username = ?", [$username]);
+            $passwordhash = R::getCell("SELECT password FROM user WHERE username='$username'");
+
+            if (password_verify($password, $passwordhash))
+            {
+                $sessionid = R::getCell("SELECT id FROM user WHERE username = '$username'");
+
+            //if ($this->user->login($username, $password))
+
                $this->session->set("username", $username);
-               $this->session->set("password", $password); 
+               $this->session->set("password", $password);
+               $this->session->set("id", $sessionid);
+
                return $response->withRedirect("/");
-            } else {
+            }
+            else
+            {
                return $this->view->render($response, 'login.twig', array("loginError" => true)); 
             }
+
         }
 
         return $this->view->render($response, 'login.twig');
@@ -58,11 +73,15 @@ class LoginController
             $lastName = $request->getParam('lastName');
             $email = $request->getParam('email');
 
-            if (!$this->user->exists($username)) {
-                if($password == $passwordRepeat) {
+            if (!$this->user->exists($username))
+            {
+                if($password == $passwordRepeat)
+                {
                    $this->user->createUser($username, $password, $firstName, $lastName, $email);
                    return $response->withRedirect("/login"); 
-                } else {
+                }
+                else
+                    {
                     return $this->view->render($response, 'register.twig', array("loginError" => "Die angegebenen Passwörter stimmen nicht überein, versuchen Sie es erneut!")); 
                 }
             } else {

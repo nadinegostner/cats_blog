@@ -28,19 +28,31 @@ class WebFormMiddleware
         /* $this->user->createUser("user1", "xyz");
         $this->user->createUser("user2", "abc"); */
 
-        if($this->session->get("username")) {
+        if($this->session->get("username"))
+        {
             $username = $this->session->get("username");
             $password = $this->session->get("password");
 
-            if($this->user->login($username, $password)) {
+            if($this->user->login($username, $password))
+            {
                return $next($request, $response);
-            } else {
+            }
+            else
+            {
                $this->session->killAll();
                return $response->withRedirect("/login");
             }
-        } else if($request->getUri()->getPath()=="/register") {
+        }
+        else if($request->getUri()->getPath()=="/register")
+        {
             return $next($request, $response);
-        } else if($request->getUri()->getPath()!== "/login") {
+        }
+        else if($request->getUri()->getPath()=="/update")
+        {
+            return $next($request, $response);
+        }
+        else if($request->getUri()->getPath()!== "/login")
+        {
             return $response->withRedirect("/login");
         }
         return $next($request, $response);

@@ -22,7 +22,9 @@
         </div>
     </div>
 
-    <form class="form-horizontal" >
+    <b> {{ sesid }} </b>
+
+    <form class="form-horizontal" method="post" action="/update" >
 
 
             <!-- Form Name -->
@@ -92,10 +94,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="btnsave">Save Changes</label>
                 <div class="col-md-8">
-                    <button id="btnsave" name="btnsave" class="btn btn-success" type="submit">Speichern</button>
-                    <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button></a>
+                     <button id="btnsave" name="btnsave" class="btn btn-success" type="submit">Speichern</button>
+                    <a href="/profile"> <button id="btncancel" name="btncancel" class="btn btn-danger">Nicht Speichern</button> </a>
                 </div>
             </div>
+
+        {% if updateError %}
+            <br>
+            <p class="text-danger">{{updateError}}</p>
+        {% endif %}
 
 
     </form>
