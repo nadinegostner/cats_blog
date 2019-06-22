@@ -2,13 +2,12 @@
 
 $app->get("/", "App\\Controllers\\ChronikController:chronik");
 
-//$app->get('/', \App\Controllers\ChronikController::class . 'chronik' );
-
 $app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
 
 $app->map(["PUT", "PATCH"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
+
 $app->post("/deletePost", "App\\Controllers\\ChronikController:postLoeschen");
 
 $app->get("/newsletter", "App\\Controllers\\NewsletterController:newsletter");
@@ -20,9 +19,10 @@ $app->get("/logout", "App\\Controllers\\LoginController:logout");
 $app->post("/chronik", "App\\Controllers\\ChronikController:postErstellen");
 
 $app->post("/subscribe", "App\\Controllers\\NewsletterController:subscribe");
+
 //$app->post( "/update", "APP\\Controllers\\ProfileController:update");
 
-$app->map(["GET","POST"], "/update", "App\\Controllers\\ProfileController:update");
+$app->map(["GET","POST"],"/update", "App\\Controllers\\ProfileController:update");
 
 //alte routen
 
