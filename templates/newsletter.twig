@@ -30,6 +30,23 @@
             Möchtest du wöchentlich mit den schönsten Katzenfotos überhäuft werden?
     </p>
 
+    {% if message is defined %}
+        {% if status == 200 %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% elseif status != 200 %}
+            <div class="alert alert-warning">
+                {{ message }}<br>
+                Status Code: {{ status }}<br>
+                Result: {{ result }}
+            </div>
+        {% endif %}
+    {% endif %}
+    
+        
+    
+
     <!-- FORM: Popup? can be integrated anywhere on site, button will redirect to mailchimp form 
     <form method="post" target="_blank" action="https://fh-kufstein.us3.list-manage.com/subscribe/post?u=4c9f2e1ce2bf774124546bbb0&amp;id=73484788f4">
             <button type="submit" class="btn btn-primary" >Subscribe</button>
@@ -46,11 +63,11 @@
         <div class="row">            
             <div class="form-group col-md-6">
                 <label for="inputFirstName">Vorname  </label>
-                <input type="text" id="firstName" name="firstName" class="form-control" >
+                <input type="text" id="firstname" name="firstname" class="form-control" >
             </div>  
             <div class="form-group col-md-6">
                 <label for="inputLastName">Nachname  </label>
-                <input type="text" id="lastName" name="lastName" class="form-control" >
+                <input type="text" id="lastname" name="lastname" class="form-control" >
             </div>            
         </div>
         
