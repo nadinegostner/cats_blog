@@ -47,12 +47,13 @@ class ProfileController
             $firstName = $request->getParam('firstName');
             $lastName = $request->getParam('lastName');
             $email = $request->getParam('email');
+            $user = $this->user->userAnzeigen();
             //$password = $request->getParam('password');
             //$passwordRepeat = $request->getParam('passwordRepeat');
 
             //if ($password == $passwordRepeat )
             //{
-                if($this->user->exists($username) == false || $username == $this->user->username)
+                if($this->user->exists($username) == false || $username == $user->username)
                 {
                  /*    if($password == null){
                         $this->user->updateUser($username, $password, $firstName, $lastName, $email);
