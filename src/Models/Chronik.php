@@ -19,7 +19,7 @@ class Chronik
         $post = R::dispense('posts');
         $post->file = $locatoin;
         $post->text = $text;
-        $post->user = $user;
+        $post->user = $user;    //userid
 
         R::store($post);
     }
@@ -33,7 +33,7 @@ class Chronik
 
     public function anzeigeneigene()
     {
-        $currentUser = $_SESSION['username'];
+        $currentUser = $_SESSION['id'];
         $catsown = R::getAll("SELECT * FROM posts WHERE user ='$currentUser' ORDER BY id DESC");
         return $catsown;
     }

@@ -22,12 +22,14 @@ class ChronikController
     {
         $this->view = $view;
         $this->chronik = $chronik;
+        //$this->user = $user;
     }
 
     public function chronik(ServerRequestInterface $request, ResponseInterface $response)
     {
 
         $cats = $this->chronik->anzeigenalle();
+
 
         return $this->view->render($response, 'chronik.html.twig',
             [
@@ -39,7 +41,7 @@ class ChronikController
     {
         $files = $request->getUploadedFiles();
         $text =  $request->getParam('text');
-        $currentUser = $_SESSION['username'];
+        $currentUser = $_SESSION['id'];
         $err_message = null;
 
         if ($files && isset($files['image'])) {
