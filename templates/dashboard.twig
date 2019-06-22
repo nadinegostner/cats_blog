@@ -65,12 +65,27 @@
                 <h5 class="card-title">{{ cat.user }}</h5>
                 <!--h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6-->                
                 <p class="card-text">{{ cat.text }}</p>
-                <a href="/editPost" class="card-link">Edit</a>
+                
+                <div class="row" id="buttons">
+                    <div class="span6">
+                        <form  method="post" id="edit_form">
+                            <div class="form-group"> 
+                                <input type="hidden" id="id_edit" name="id" value="{{ cat.id }}">
+                                <button id="edit" class="card-link">Edit</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="span6" action="/deletePost">
+                        <form method="post" action="/deletePost">
+                            <div class="form-group">
+                                <input type="hidden" id="id" name="id" value="{{ cat.id }}">
+                                <button type="submit" id="delete" class="card-link">Delete</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-                <form action="/deletePost" method="post">
-                    <input type="hidden" id="id" name="id" value="{{ cat.id }}">
-                    <button type="submit" class="card-link">Delete</a>
-                </form>
+                
             </div>
         </div>
 
@@ -90,25 +105,28 @@
         })
     </script>
 </div>
-<!--
+
 <script>
 
-    var input = document.getElementById("userInput");
-    var btn = document.getElementById("addBtn");
+    var input = document.getElementById("id_edit");
+    var btn = document.getElementById("edit");
+    var form = document.getElementById("edit_form");
 
     btn.addEventListener('click', function() {
         newInput = document.createElement('input');
         newInput.className = "mb-2"
         newInput.type = "text";
-        newInput.name = "users[]";
+        newInput.name = "text";
         newInput.setAttribute("form","messageForm");
         input.parentNode.insertBefore(newInput, input);
 
+        btn.innerHTML = "Speichern";
+        form.action = "/editPost";
     });
 
 </script>
 
-   -->
+ 
 <div>
 
 </div>

@@ -8,7 +8,7 @@ $app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
 
-$app->map(["PUT", "PATCH"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
+$app->map(["PUT", "PATCH", "POST", "GET"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
 $app->post("/deletePost", "App\\Controllers\\ChronikController:postLoeschen");
 
 $app->get("/newsletter", "App\\Controllers\\NewsletterController:newsletter");
