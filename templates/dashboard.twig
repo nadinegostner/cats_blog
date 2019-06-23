@@ -1,26 +1,7 @@
 {% include 'header.twig' %}
+{% include 'nav.twig' %}
 
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <a href="/logout">
-                <div class="btn btn-secondary float-right m-2">Logout</div>
-            </a>
-            <a href="/profile">
-                <div class="btn btn-secondary float-right m-2">Mein Konto</div>
-            </a>
-            <a href="/newsletter">
-                <div class="btn btn-secondary float-right m-2">Cataletter</div>
-            </a>
-            <a href="/dashboard">
-                <div class="btn btn-secondary float-right m-2">Dashboard</div>
-            </a>
-            <a href="/rechronik">
-                <div class="btn btn-secondary float-right m-2">Chronik</div>
-            </a>
-        </div>
-    </div>
 
     <div class="container">
         {% if error %}
@@ -44,13 +25,13 @@
 
 
     <div class="row">
-        <div class="col-md-6">
-            <h3>Your CAT here:</h3>
+        <div class="col-md-6 offset-md-3">
+            <h3>Beitrag erstellen</h3>
 
             <form id="image-form" action="/chronik" method="post" enctype="multipart/form-data" id="pictureForm">
                 <input id="image" type="file" name="image" style="display: none"/>
-                <input id="text" type="text" name="text" placeholder="Sag etwas dazu"/>
-                <button id="image-share" class="btn btn-primary">Select and Share</button>
+                <input id="text" type="text" name="text" placeholder="Beschreibe dein Katzenfoto"/>
+                <button id="image-share" class="btn btn-primary">Auswählen und Teilen</button>
             </form>
         </div>
     </div>
@@ -59,7 +40,7 @@
 
     {% for cat in cats %}
 
-        <div class="card" style="padding: 20px; margin: 10px;"> 
+        <div class="card col-md-6 offset-md-3">
             <img class="card-img-top" src="/{{ cat.file }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ cat.user }}</h5>
