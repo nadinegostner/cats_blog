@@ -40,6 +40,7 @@ class ChronikController
         $files = $request->getUploadedFiles();
         $text =  $request->getParam('text');
         $currentUser = $_SESSION['username'];
+        $currentuserid = $_SESSION['id'];
         $err_message = null;
 
         if ($files && isset($files['image'])) {
@@ -51,7 +52,7 @@ class ChronikController
                 $filename = "images/" . $this->chronik->generateToken($file->getClientFilename()) . "." . $extension;
                 $file->moveTo(__DIR__ . "/../../public/" . $filename);
 
-                $this->chronik->posten($filename, $text, $currentUser);
+                $this->chronik->posten($filename, $text, $currentUser, $currentuserid);
             }else{
                 $err_message = "Leider kann Dein Bild nicht hochgeladen werden. 
                 Vermutlich ist es zu groß oder entspricht keinem gängigem Format. Bitte probier eine andere Datei!";
