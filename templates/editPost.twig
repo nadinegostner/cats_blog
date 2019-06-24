@@ -4,11 +4,13 @@
 
 
 <img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
-<div id="start" class="container">
+<div id="start" class="container col-md-6 offset-md-3">
+
+    <h1>Post bearbeiten</h1>
 
     {% for cat in cats %}
 
-        <div class="post card col-md-6 offset-md-3">
+        <div class="post card">
             <img class="card-img-top" src="/{{ cat.file }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ cat.user }}</h5>
@@ -16,14 +18,14 @@
                 <p class="card-text">{{ cat.text }}</p>
 
                 <div class="row" id="buttons">
-                    <div class="col-md-12 offset-md-0">
+                    <div class="col-md-12">
                         <form  method="post" action="/editPost">
                             <div>
                                 <row>
                                 
                                 <input type="hidden" id="id" name="id" value="{{ cat.id }}">
                                 <input id="text-beschreibung-edit" class="col-md-12" type="text" name="text" value="{{ cat.text }}" placeholder="Was willst du noch zu deiner Katze sagen?"/>
-                                <button class="btn btn-primary offset-md-7" type="submit" id="edit" >Save</button>
+                                <button class="btn btn-primary" type="submit" id="edit" >Save</button>
                                 </row>
                             </div>
                             
@@ -36,6 +38,6 @@
         </div>
 
     {% endfor %}
-
+</div>
 
 {% include 'footer.twig' %}

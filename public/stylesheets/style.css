@@ -59,7 +59,7 @@ nav ul li a:hover {
     color: white;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, #btnsave:hover, #edit:hover {
     background-color: #AA3E5D;
 }
 
@@ -73,7 +73,7 @@ nav ul li a:hover {
     padding: 0 2em;
 }
 
-#btncancel:hover {
+#btncancel:hover, #delete:hover {
     background-color: #F3F3F3;
     color: #AA3E5D;
 }
