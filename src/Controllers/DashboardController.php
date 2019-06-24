@@ -29,4 +29,17 @@ class DashboardController
         ]);
     }
 
+    public function editpostpage(ServerRequestInterface $request, ResponseInterface $response)
+    {
+        $id = $request->getParam('id');
+        $cats = $this->chronik->editanzeigen($id);
+
+        return $this->view->render($response, 'editPost.twig',
+            [
+                'cats' => $cats,
+            ]);
+
+
+    }
+
 }

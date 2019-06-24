@@ -38,11 +38,9 @@ class LoginController
             {
                 $sessionid = R::getCell("SELECT id FROM user WHERE username = '$username'");
 
-            //if ($this->user->login($username, $password))
-
-               $this->session->set("username", $username);
-               $this->session->set("password", $password);
-               $this->session->set("id", $sessionid);
+                $this->session->set("username", $username);
+                $this->session->set("password", $password);
+                $this->session->set("id", $sessionid);
 
                return $response->withRedirect("/");
             }
@@ -62,9 +60,11 @@ class LoginController
         return $this->view->render($response, 'login.twig');
     }
 
-    public function register(ServerRequestInterface $request, ResponseInterface $response) {
+    public function register(ServerRequestInterface $request, ResponseInterface $response)
+    {
        
-        if($request->isPost() && $request->getParam('username') && $request->getParam('password') && $request->getParam('passwordRepeat') && $request->getParam('firstName') && $request->getParam('lastName') && $request->getParam('email') ){
+        if($request->isPost() && $request->getParam('username') && $request->getParam('password') && $request->getParam('passwordRepeat') && $request->getParam('firstName') && $request->getParam('lastName') && $request->getParam('email') )
+        {
 
             $username = $request->getParam('username');
             $password = $request->getParam('password');
@@ -84,7 +84,8 @@ class LoginController
                     {
                     return $this->view->render($response, 'register.twig', array("loginError" => "Die angegebenen Passwörter stimmen nicht überein, versuchen Sie es erneut!")); 
                 }
-            } else {
+            } else
+                {
                return $this->view->render($response, 'register.twig', array("loginError" => "Der Benutzername existiert bereits, bitte verwenden Sie einen anderen")); 
             }
         }

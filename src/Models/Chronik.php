@@ -33,6 +33,11 @@ class Chronik
 
     }
 
+    public function editanzeigen($id){
+        $cats = R::getAll("SELECT * FROM posts WHERE id='$id';");
+        return $cats;
+    }
+
     public function anzeigeneigene()
     {
         //$currentUser = $_SESSION['username'];
@@ -41,14 +46,16 @@ class Chronik
         return $catsown;
     }
 
-    public function loeschen($id){
+    public function loeschen($id)
+    {
         $post = R::load('posts', $id);
         R::trash($post);
 
         return true;
     }
 
-    public function bearbeiten($id, $text){
+    public function bearbeiten($id, $text)
+    {
         $post = R::load('posts', $id);
         $post->text = $text;
 
