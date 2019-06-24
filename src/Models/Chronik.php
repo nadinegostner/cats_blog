@@ -33,6 +33,11 @@ class Chronik
 
     }
 
+    public function editanzeigen($id){
+        $cats = R::getAll("SELECT * FROM posts WHERE id='$id';");
+        return $cats;
+    }
+
     public function anzeigeneigene()
     {
         //$currentUser = $_SESSION['username'];

@@ -117,12 +117,17 @@ class ChronikController
             $message = "Dein CATpost wurde erfolgreich geändert!";
         }
 
+        $cats = $this->chronik->anzeigeneigene();
+
         return $this->view->render(
             $response,
             'dashboard.twig',
             [
                 'success' => $success,
-                'message' => $message
+                'message' => $message,
+                'cats' => $cats
+
+
             ]
         );
     }

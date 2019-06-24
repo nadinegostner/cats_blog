@@ -20,6 +20,8 @@ $app->post("/chronik", "App\\Controllers\\ChronikController:postErstellen");
 
 $app->post("/subscribe", "App\\Controllers\\NewsletterController:subscribe");
 
+$app->map(["POST","GET"],"/editpostpage", "App\\Controllers\\DashboardController:editpostpage");
+
 
 $app->map(["GET","POST"],"/update", "App\\Controllers\\ProfileController:update");
 
