@@ -1,7 +1,8 @@
 {% include 'header.twig' %}
 {% include 'nav.twig' %}
 
-<div class="container">
+<img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
+<div id="start" class="container">
 
     {#<div id="nav" class="row">#}
         {#<div class="col-md-12">#}
@@ -22,9 +23,10 @@
             {#</a>#}
         {#</div>#}
     {#</div>#}
-    <div class="jumbotron">
-        <h1 class="display-4">CATalog</h1>
-        <p class="lead">Share your Cat images with friends!</p>
+    <div class="col-md-6 offset-md-3">
+        <h1><b>CAT</b>alog</h1>
+        <h5>Teile deine schönsten Katzenfotos mit deinen Freunden und der ganzen Welt!</h5>
+        </br>
     </div>
 
     <div class="row">
@@ -39,15 +41,16 @@
 
             <form id="image-form" action="/chronik" method="post" enctype="multipart/form-data" id="pictureForm">
                 <input id="image" type="file" name="image" style="display: none"/>
-                <input id="text-beschreibung" type="text" name="text" placeholder="Beschreibe dein Katzenfoto"/>
-                <button id="image-share" class="btn btn-primary">Auswählen und Teilen</button>
+                <input id="text-beschreibung" class="col-md-12" type="text" name="text" placeholder="Beschreibe dein Katzenfoto"/>
+                </br>
+                <button id="image-share" class="btn btn-primary offset-md-7">Auswählen und Teilen</button>
             </form>            
         </div>
     </div>
 
     {% for cat in cats %}
 
-        <div class="card col-md-6 offset-md-3">
+        <div class="post card col-md-6 offset-md-3">
             <img class="card-img-top" src="/{{ cat.file }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ cat.user }}</h5>

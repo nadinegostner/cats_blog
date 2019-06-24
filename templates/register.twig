@@ -1,56 +1,58 @@
 {% include 'header.twig' %}
-<img class="logostart col-md-2 offset-md-5" src="../images/cat_icon/kitty(2).png" alt="Logo CATalog">
-<h1 class="col-md-2 offset-md-5"><b>CAT</b>alog</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Clipboard Register</h5>
-          <form method="POST" action="/register">
-            <div class="form-label-group">
-              <label for="inputUser">Benutzername: </label>
-              <input type="text" id="username" name="username" class="form-control" required autofocus>
-            </div>
-            <br>
-            <div class="form-label-group">
-              <label for="inputFirstName">Vorname:  </label>
-              <input type="text" id="firstName" name="firstName" class="form-control" required>
-            </div>
-            <br>
-            <div class="form-label-group">
-              <label for="inputLastName">Nachname:  </label>
-              <input type="text" id="lastName" name="lastName" class="form-control" required>
-            </div>
-            <br>
-            <div class="form-label-group">
-              <label for="inputEmali">E-mail </label>
-              <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <br>
-            <div class="form-label-group">
-              <label for="inputPassword">Passwort: </label>
-              <input type="password" id="password" name="password" class="form-control" required>
-            </div>
-            <br>
-            <div class="form-label-group">
-                <label >Passwort Wiederholen: </label>
-                <input type="password" id="passwordRepeat" name="passwordRepeat" class="form-control" required>
+<div id="register">
+  <img class="logostart col-md-2 offset-md-5" src="../images/cat_icon/kitty(2).png" alt="Logo CATalog">
+  <h1 class="col-md-2 offset-md-5"><b>CAT</b>alog</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h3 class="card-title text-center">Register</h3>
+            <form method="POST" action="/register">
+              <div class="form-label-group">
+                <label for="inputUser">Benutzername: </label>
+                <input type="text" id="username" name="username" class="form-control" required autofocus>
               </div>
+              <br>
+              <div class="form-label-group">
+                <label for="inputFirstName">Vorname:  </label>
+                <input type="text" id="firstName" name="firstName" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-label-group">
+                <label for="inputLastName">Nachname:  </label>
+                <input type="text" id="lastName" name="lastName" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-label-group">
+                <label for="inputEmali">E-mail </label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-label-group">
+                <label for="inputPassword">Passwort: </label>
+                <input type="password" id="password" name="password" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-label-group">
+                  <label >Passwort Wiederholen: </label>
+                  <input type="password" id="passwordRepeat" name="passwordRepeat" class="form-control" required>
+                </div>
 
-            {% if loginError %}
-            <br>
-            <p class="text-danger">{{loginError}}</p>
-            {% endif %}
-            
-            <hr class="my-4">
+              {% if loginError %}
+              <br>
+              <p class="text-danger">{{loginError}}</p>
+              {% endif %}
 
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrieren</button>
-            <a href="/login"><button class="btn btn-lg btn-link btn-block text-uppercase" type="button">Login</button></a> 
-          </form>
+              <hr class="my-4">
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrieren</button>
+              <a href="/login"><button class="buttonlogin btn btn-lg btn-link btn-block text-uppercase" type="button">Login</button></a>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% include 'footer.twig' %}
+</body>
