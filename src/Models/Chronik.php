@@ -14,12 +14,14 @@ class Chronik
         return hash("sha256", $input . time());
     }
 
-    public function posten($locatoin ,$text ,$user )
+    public function posten($locatoin ,$text ,$user, $userid)
     {
         $post = R::dispense('posts');
         $post->file = $locatoin;
         $post->text = $text;
-        $post->user = $user;    //userid
+        $post->user = $user;
+        $post->userid = $userid;
+
 
         R::store($post);
     }
@@ -33,8 +35,9 @@ class Chronik
 
     public function anzeigeneigene()
     {
-        $currentUser = $_SESSION['id'];
-        $catsown = R::getAll("SELECT * FROM posts WHERE user ='$currentUser' ORDER BY id DESC");
+        //$currentUser = $_SESSION['username'];
+        $currentUserid = $_SESSION['id'];
+        $catsown = R::getAll("SELECT * FROM posts WHERE userid ='$currentUserid' ORDER BY id DESC");
         return $catsown;
     }
 

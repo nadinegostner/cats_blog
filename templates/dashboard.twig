@@ -1,26 +1,8 @@
 {% include 'header.twig' %}
+{% include 'nav.twig' %}
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <a href="/logout">
-                <div class="btn btn-secondary float-right m-2">Logout</div>
-            </a>
-            <a href="/profile">
-                <div class="btn btn-secondary float-right m-2">Mein Konto</div>
-            </a>
-            <a href="/newsletter">
-                <div class="btn btn-secondary float-right m-2">Cataletter</div>
-            </a>
-            <a href="/dashboard">
-                <div class="btn btn-secondary float-right m-2">Dashboard</div>
-            </a>
-            <a href="/rechronik">
-                <div class="btn btn-secondary float-right m-2">Chronik</div>
-            </a>
-        </div>
-    </div>
+<img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
+<div id="start" class="container">
 
     <div class="container">
         {% if error %}
@@ -44,22 +26,25 @@
 
 
     <div class="row">
-        <div class="col-md-6">
-            <h3>Your CAT here:</h3>
+        <div class="col-md-6 offset-md-3">
+            <h1>Dashboard</h1>
+            <h3>Beitrag erstellen</h3>
 
             <form id="image-form" action="/chronik" method="post" enctype="multipart/form-data" id="pictureForm">
                 <input id="image" type="file" name="image" style="display: none"/>
-                <input id="text" type="text" name="text" placeholder="Sag etwas dazu"/>
-                <button id="image-share" class="btn btn-primary">Select and Share</button>
+                <input id="text-beschreibung" class="col-md-12" type="text" name="text" placeholder="Beschreibe dein Katzenfoto"/>
+                </br>
+                <button id="image-share" class="btn btn-primary offset-md-7">Auswählen und Teilen</button>
             </form>
+            <h4>Hier werden all deine Fotos angezeigt</h4>
         </div>
     </div>
 
-    POSTS VON USER HIER ANZEIGEN
+
 
     {% for cat in cats %}
 
-        <div class="card" style="padding: 20px; margin: 10px;"> 
+        <div class="post card col-md-6 offset-md-3">
             <img class="card-img-top" src="/{{ cat.file }}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{ cat.user }}</h5>

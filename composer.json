@@ -17,7 +17,8 @@
         "monolog/monolog": "^1.17",
         "slim/twig-view": "^2.4",
         "gabordemooij/redbean": "^5.2",
-        "curl/curl": "^2.0"
+        "curl/curl": "^2.0",
+        "ext-curl":"*"
 
     },
     "require-dev": {

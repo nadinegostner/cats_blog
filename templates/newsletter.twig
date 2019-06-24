@@ -1,31 +1,10 @@
 {% include 'header.twig' %}
+{% include 'nav.twig' %}
 
-<div class="container">
+<img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
 
-    <div class="row">
-        <div class="col-md-12">
-            <a href="/logout">
-                <div class="btn btn-secondary float-right m-2">Logout</div>
-            </a>
-            <a href="/profile">
-                <div class="btn btn-secondary float-right m-2">Mein Konto</div>
-            </a>
-            <a href="/newsletter">
-                <div class="btn btn-secondary float-right m-2">Cataletter</div>
-            </a>
-            <a href="/dashboard">
-                <div class="btn btn-secondary float-right m-2">Dashboard</div>
-            </a>
-            <a href="/rechronik">
-                <div class="btn btn-secondary float-right m-2">Chronik</div>
-            </a>
-        </div>
-    </div>
-
-    NEWSLETTER
-</div>
-
-<div class="container">
+<div id="start" class="container col-md-6 offset-md-3">
+    <h1>Newsletter</h1>
     <p>
             Möchtest du wöchentlich mit den schönsten Katzenfotos überhäuft werden?
     </p>
@@ -53,7 +32,7 @@
     </form>-->
 </div>
 
-<div class="container">
+<div class="container col-md-6 offset-md-3">
     <form method="post" action="/subscribe">
         <div class="form-label-group">
             <label for="email">Email Addresse * </label>

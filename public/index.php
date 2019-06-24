@@ -11,7 +11,7 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-\RedBeanPHP\R::setup("sqlite:../clipboard.db");
+\RedBeanPHP\R::setup("sqlite:../CATalog.db");
 
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';

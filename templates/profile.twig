@@ -1,26 +1,8 @@
 {% include 'header.twig' %}
+{% include 'nav.twig' %}
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <a href="/logout">
-                <div class="btn btn-secondary float-right m-2">Logout</div>
-            </a>
-            <a href="/profile">
-                <div class="btn btn-secondary float-right m-2">Mein Konto</div>
-            </a>
-            <a href="/newsletter">
-                <div class="btn btn-secondary float-right m-2">Cataletter</div>
-            </a>
-            <a href="/dashboard">
-                <div class="btn btn-secondary float-right m-2">Dashboard</div>
-            </a>
-            <a href="/rechronik">
-                <div class="btn btn-secondary float-right m-2">Chronik</div>
-            </a>
-        </div>
-    </div>
+<img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
+<div id="start" class="container col-md-6 offset-md-3">
 
     <b> {{ sesid }} </b>
 
@@ -28,12 +10,12 @@
 
 
             <!-- Form Name -->
-            <legend>{{ username }}`s Profile</legend>
+            <legend><h1>{{ username }}`s Profil</h1></legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Username:</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Username:</label>
+                <div>
                     <input id="username" name="username" type="text" value="{{ username }}" class="form-control input-md">
 
                 </div>
@@ -41,8 +23,8 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Vorname:</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Vorname:</label>
+                <div>
                     <input id="firstName" name="firstName" type="text" value="{{ firstname }}" placeholder="Vorname aendern" class="form-control input-md" required="">
 
                 </div>
@@ -50,8 +32,8 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Nachname:</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Nachname:</label>
+                <div>
                     <input id="lastName" name="lastName" type="text" value="{{ lastname }}"placeholder="Nachname aendern" class="form-control input-md">
 
                 </div>
@@ -59,8 +41,8 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">E-Mail:</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">E-Mail:</label>
+                <div>
                     <input id="email" name="email" type="text" value="{{ email }}" placeholder="E-Mail aendern" class="form-control input-md">
 
                 </div>
@@ -103,29 +85,29 @@
     </form>
 
     <form action="/update-p" method="POST">
-            <b>Passwort aendern</b>
+            <b>Passwort &auml;ndern</b>
             <br>
             <br>
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Altes Password</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Altes Password</label>
+                <div>
                     <input id="password" name="oldPw" type="password" placeholder="Passwort" class="form-control input-md">
 
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Neues Password</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Neues Password</label>
+                <div>
                     <input id="password" name="newPw" type="password" placeholder="Passwort" class="form-control input-md">
 
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Neues Passwort nochmal</label>
-                <div class="col-md-4">
+                <label class="control-label" for="textinput">Neues Passwort nochmal</label>
+                <div>
                     <input id="passwordRepeat" name="repeatPw" type="password" placeholder="Passwort nochmal" class="form-control input-md">
 
                 </div>
