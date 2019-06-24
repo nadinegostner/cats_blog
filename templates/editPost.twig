@@ -1,9 +1,7 @@
 {% include 'header.twig' %}
+{% include 'nav.twig' %}
 
-<nav>
-    <ul class="offset-md-2">
-    </ul>
-</nav>
+
 
 <img id="logo" class="logo col-md-2" src="../images/cat_icon/kitty_whiteKontur.png" alt="Logo CATalog">
 <div id="start" class="container">
@@ -18,15 +16,15 @@
                 <p class="card-text">{{ cat.text }}</p>
 
                 <div class="row" id="buttons">
-                    <div class="span6">
+                    <div class="col-md-12 offset-md-0">
                         <form  method="post" action="/editPost">
-                            <div >
-                                <row>
+                            
+                                
                                 <input type="hidden" id="id" name="id" value="{{ cat.id }}">
                                 <input id="text-beschreibung-edit" class="col-md-12" type="text" name="text" placeholder="Was willst du noch zu deiner Katze sagen?"/>
                                 <button class="btn btn-primary offset-md-7" type="submit" id="edit" >Save</button>
-                                </row>
-                            </div>
+                             
+                            
                         </form>
                     </div>
                 </div>
