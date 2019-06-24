@@ -6,7 +6,7 @@ $app->get("/rechronik", "App\\Controllers\\ChronikController:chronik");
 
 $app->get("/dashboard", "App\\Controllers\\DashboardController:dashboard");
 
-$app->map(["PUT", "PATCH"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
+$app->map(["GET","POST"], "/editPost", "App\\Controllers\\ChronikController:postBearbeiten");
 
 $app->post("/deletePost", "App\\Controllers\\ChronikController:postLoeschen");
 
@@ -20,17 +20,11 @@ $app->post("/chronik", "App\\Controllers\\ChronikController:postErstellen");
 
 $app->post("/subscribe", "App\\Controllers\\NewsletterController:subscribe");
 
-//$app->post( "/update", "APP\\Controllers\\ProfileController:update");
 
 $app->map(["GET","POST"],"/update", "App\\Controllers\\ProfileController:update");
 
 $app->map(["GET", "POST"], "/update-p", "App\\Controllers\\ProfileController:updatePassword");
 
-//alte routen
-
-$app->post("/clipboard", "App\\Controllers\\ClipboardController:create");
-
-$app->get("/clipboard/{token}", "App\\Controllers\\ClipboardController:get");
 
 $app->map(["GET","POST"], "/login", "App\\Controllers\\LoginController:login");
 

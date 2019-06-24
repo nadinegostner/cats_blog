@@ -7,9 +7,7 @@ use App\Models\Chronik;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
-use Slim\Http\Response;
-use App\Models\User;
-use App\Helper\Session;
+
 
 class ChronikController
 {
@@ -104,14 +102,18 @@ class ChronikController
         }
     }
 
-    public function postBearbeiten(ServerRequestInterface $request, ResponseInterface $response){
+    public function postBearbeiten(ServerRequestInterface $request, ResponseInterface $response)
+    {
         $id = $request->getParam('id');
         $text = $request->getParam('text');
         $success = $this->chronik->bearbeiten($id, $text);
 
-        if (!$success) {
+        if (!$success)
+        {
             $message = "Dein CATpost konnte leider nicht gespeichert werden. Bitte probiere es erneut.";
-        } else {
+        }
+        else
+        {
             $message = "Dein CATpost wurde erfolgreich geändert!";
         }
 

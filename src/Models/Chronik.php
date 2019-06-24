@@ -41,14 +41,16 @@ class Chronik
         return $catsown;
     }
 
-    public function loeschen($id){
+    public function loeschen($id)
+    {
         $post = R::load('posts', $id);
         R::trash($post);
 
         return true;
     }
 
-    public function bearbeiten($id, $text){
+    public function bearbeiten($id, $text)
+    {
         $post = R::load('posts', $id);
         $post->text = $text;
 
