@@ -14,10 +14,10 @@ class Chronik
         return hash("sha256", $input . time());
     }
 
-    public function posten($locatoin ,$text ,$user, $userid)
+    public function posten($location ,$text ,$user, $userid)
     {
         $post = R::dispense('posts');
-        $post->file = $locatoin;
+        $post->file = $location;
         $post->text = $text;
         $post->user = $user;
         $post->userid = $userid;
