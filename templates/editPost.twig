@@ -20,10 +20,12 @@
                 <div class="row" id="buttons">
                     <div class="span6">
                         <form  method="post" action="/editPost">
-                            <div class="form-group">
+                            <div >
+                                <row>
                                 <input type="hidden" id="id" name="id" value="{{ cat.id }}">
-                                <input class="col-md-12" type="text" id="text-beschreibungt" name="text" placeholder="Was willst du noch über das schöne Bild sagen?">
+                                <input id="text-beschreibung-edit" class="col-md-12" type="text" name="text" placeholder="Was willst du noch zu deiner Katze sagen?"/>
                                 <button class="btn btn-primary offset-md-7" type="submit" id="edit" >Save</button>
+                                </row>
                             </div>
                         </form>
                     </div>
